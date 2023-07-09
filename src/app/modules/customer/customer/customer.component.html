@@ -1,0 +1,195 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">Customers</div>
+        <div class="d-flex gap-3">
+            <div class="input mb-0">
+              <div class="input-icon-left">
+                <i class="pi pi-search"></i>
+                <input type="text" class="form-control" placeholder="Search PCID... ..." />
+              </div>
+            </div>
+            <!-- <button class="btn btn-secondary"><i class="pi pi-file-import"></i>Import CSV</button>
+            <button class="btn btn-secondary"><i class="pi pi-file-export"></i>Export CSV</button>
+            <button class="btn btn-danger">Delete All Customers</button> -->
+            <button class="btn btn-primary" (click)="addCustomer()">Add Customer</button>
+          </div>
+        
+    </div>
+    <div class="card-body">
+        <div class="app-table">
+            <p-table [value]="products" dataKey="name" [tableStyle]="{ 'min-width': '60rem' }">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem"></th>
+                        <th>Company Name</th>
+                        <th>Contact Person</th>
+                        <th>Phone</th>
+                        <th>Mail</th>
+                        <th>Address</th>
+                        <th style="width: 400px;">Notes</th>
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product let-expanded="expanded">
+                    <tr>
+                        <td>
+                            <button [pRowToggler]="product" class="btn btn-icon btn-sm">
+                                <i [class]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+                            </button>
+                        </td>
+                        <td>{{ product.name }}</td>
+                        <td>## ## ##</td>
+                        <td>## ## ##</td>
+                        <td>## ## ##</td>
+                        <td>## ## ##</td>
+                        <td>## ## ##</td>
+                        <td>
+                            <div class="action-btn-group">
+                                <button class="btn btn-icon btn-primary btn-sm" (click)="addUser()"><i class="pi pi-user"></i></button>
+                                <button class="btn btn-icon action-btn"><i class="pi pi-pencil"></i></button>
+                                <button class="btn btn-icon action-btn"><i class="pi pi-trash"></i></button>
+                              </div>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="rowexpansion" let-product>
+                    <tr>
+                        <td colspan="8" style="background: #E2E8F0;">
+                            <div class="py-3">
+                                <p-table [value]="product.orders" dataKey="id">
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th>User Name</th>
+                                            <th>PCID</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-order>
+                                        <tr>
+                                            <td>## ## ##</td>
+                                            <td>## ## ##</td>
+                                            <td>
+                                                <div class="action-btn-group">
+                                                    <button class="btn btn-icon action-btn" (click)="addUser()"><i class="pi pi-pencil"></i></button>
+                                                    <button class="btn btn-icon action-btn"><i class="pi pi-trash"></i></button>
+                                                  </div>
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="emptymessage">
+                                        <tr>
+                                            <td colspan="7">### ### ###</td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+
+
+
+<p-dialog [(visible)]="addcustomer" [modal]="true" [style]="{ width: '30vw' }" [draggable]="false" [resizable]="false">
+    <ng-template pTemplate="header">
+        <p class="title">Add/Edit Customer</p>
+      </ng-template>
+      <div class="input">
+        <label>Company Name:</label>
+        <input type="text" class="form-control" placeholder="Company Name">
+      </div>
+      <div class="input">
+        <label>Contact Person:</label>
+        <input type="text" class="form-control" placeholder="Contact Person">
+      </div>
+      <div class="input">
+        <label>Phone:</label>
+        <input type="text" class="form-control" placeholder="Phone">
+      </div>
+      <div class="input">
+        <label>Mail:</label>
+        <input type="text" class="form-control" placeholder="Mail">
+      </div>
+      <div class="input">
+        <label>Address:</label>
+        <textarea class="form-control" placeholder="Address"></textarea>
+      </div>
+      <div class="input">
+        <label>Notes:</label>
+        <textarea class="form-control" placeholder="Notes"></textarea>
+      </div>
+      <div class="text-end btns-group">
+        <button type="button" class="btn btn-secondary" (click)="addcustomer = false">Cancel</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+</p-dialog>
+
+<p-dialog [(visible)]="adduser" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+    <ng-template pTemplate="header">
+        <p class="title">Add/Edit User</p>
+      </ng-template>
+
+      <div class="row">
+        <div class="col-md-6">
+            <div class="input">
+                <label>User Name:</label>
+                <input type="text" class="form-control" placeholder="User Name">
+              </div>
+        </div>
+        <div class="col-md-6">
+            <div class="input">
+                <label>PCID:</label>
+                <input type="text" class="form-control" placeholder="PCID">
+              </div>
+        </div>
+      </div>
+      <div class="input">
+        <label>Notes:</label>
+        <textarea class="form-control" placeholder="Notes"></textarea>
+      </div>
+      
+     <div class="app-table mb-3">
+        <p-table #myTab [value]="tableData">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>App</th>
+                    <th>Enable</th>
+                    <th>Trial Version</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Days Left</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-people>
+                <tr>
+                    <td>App Name</td>
+                    <td><p-inputSwitch [(ngModel)]="checked" ></p-inputSwitch></td>
+                    <td><p-inputSwitch [(ngModel)]="checked" ></p-inputSwitch></td>
+                    <td>
+                        <div class="input mb-0">
+                            <input type="date" class="form-control fc-sm" >
+                          </div>
+                    </td>
+                    <td>
+                        <div class="input mb-0">
+                            <input type="date" class="form-control fc-sm" >
+                          </div>
+                    </td>
+                    <td>
+                        <div class="input mb-0">
+                            <input style="width: 100px;" type="number" class="form-control fc-sm" >
+                          </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+     </div>
+      
+      <div class="text-end btns-group">
+        <button type="button" class="btn btn-secondary" (click)="adduser = false">Cancel</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+</p-dialog>

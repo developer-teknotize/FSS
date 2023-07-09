@@ -1,0 +1,182 @@
+<div class="card">
+    <div class="card-header">
+        <div class="title">Known PCID </div>
+        <p-calendar appendTo="body"  [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" ></p-calendar>
+    </div>
+    
+    <div class="card-body">
+        <div class="row g-3 mb-4">
+            <div class="col-md-4">
+                <div class="card h-100 counter">
+                    <div class="card-header">
+                        <p class="title">FROG base</p>
+                    </div>
+                    <div class="card-body">
+                        
+        
+                        <div class="counters-items">
+                            <div class="item">
+                                <div class="data-title">App Runs</div>
+                                <div class="data-value">25</div>
+                            </div>
+                            <div class="item">
+                                <div class="data-title">App Denied Access</div>
+                                <div class="data-value">36</div>
+                            </div>
+                            <div class="item">
+                                <div class="data-title">Downloads</div>
+                                <div class="data-value">1200</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 counter">
+                    <div class="card-header">
+                        <p class="title">FROG Lathe</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="counters-items">
+                            <div class="item">
+                                <div class="data-title">App Runs</div>
+                                <div class="data-value">25</div>
+                            </div>
+                            <div class="item">
+                                <div class="data-title">App Denied Access</div>
+                                <div class="data-value">36</div>
+                            </div>
+                            <div class="item">
+                                <div class="data-title">Downloads</div>
+                                <div class="data-value">1200</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 counter">
+                    <div class="card-header">
+                        <p class="title">FROG 4D</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="counters-items">
+                            <div class="item">
+                                <div class="data-title">App Runs</div>
+                                <div class="data-value">25</div>
+                            </div>
+                            <div class="item">
+                                <div class="data-title">App Denied Access</div>
+                                <div class="data-value">36</div>
+                            </div>
+                            <div class="item">
+                                <div class="data-title">Downloads</div>
+                                <div class="data-value">1200</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 counter">
+                    <div class="card-header">
+                        <p class="title">FROG Wire2D</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="counters-items">
+                            <div class="item">
+                                <div class="data-title">App Runs</div>
+                                <div class="data-value">25</div>
+                            </div>
+                            <div class="item">
+                                <div class="data-title">App Denied Access</div>
+                                <div class="data-value">36</div>
+                            </div>
+                            <div class="item">
+                                <div class="data-title">Downloads</div>
+                                <div class="data-value">1200</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 counter">
+                    <div class="card-header">
+                        <p class="title">FROG Wire3D</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="counters-items">
+                            <div class="item">
+                                <div class="data-title">App Runs</div>
+                                <div class="data-value">25</div>
+                            </div>
+                            <div class="item">
+                                <div class="data-title">App Denied Access</div>
+                                <div class="data-value">36</div>
+                            </div>
+                            <div class="item">
+                                <div class="data-title">Downloads</div>
+                                <div class="data-value">1200</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 counter">
+                    <div class="card-header">
+                        <p class="title">FROG XXX</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="counters-items">
+                            <div class="item">
+                                <div class="data-title">App Runs</div>
+                                <div class="data-value">25</div>
+                            </div>
+                            <div class="item">
+                                <div class="data-title">App Denied Access</div>
+                                <div class="data-value">36</div>
+                            </div>
+                            <div class="item">
+                                <div class="data-title">Downloads</div>
+                                <div class="data-value">1200</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-header">
+        <div class="title">Unknown PCID </div>
+    </div>
+    <div class="card-body">
+        <div class="app-table">
+            <p-table [value]="products">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Unknown PCID</th>
+                        <th>Attempt to Access</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>## ## ## ## ## ##</td>
+                        <td>##</td>
+                    </tr>
+                </ng-template>
+
+            </p-table>
+        </div>
+    </div>
+</div>

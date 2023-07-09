@@ -1,0 +1,29 @@
+@import '../../../../assets/styles/variables';
+::ng-deep{
+    .layout{
+        background: #E3E5F5;
+        height: 100%;
+        .sidebar{
+            width: $expanded;
+            background: #1A2A44;
+            position: fixed;
+            left: 0;
+            height: 100%;
+        }
+        .app-container{
+            margin-left: $expanded;
+            height: 100%;
+            overflow: hidden;
+            .header{
+                height: $header-height;
+                border-bottom: 1px solid #E3E5F5;
+            }
+            .app-component{
+                padding: 24px;
+                overflow: hidden;
+                overflow-y: overlay;
+                height: calc(100% - #{$header-height});
+            }
+        }
+    }
+}

@@ -1,0 +1,72 @@
+@import '../../../../assets/styles/variables';
+.sign-in{
+    height: 100%;
+    overflow: hidden;
+    background: #1A2A44;
+    .signin-left{
+        // background: #1A2A44;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .vector-circle-top{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .vector-circle-bottom{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        .center-img{
+            // position: absolute;
+            // z-index: 99;
+            // left: 50%;
+            // top: 50%;
+            // transform: translate(-50%,-50%);
+            z-index: 9;
+        }
+    }
+    .signin-right{
+        // background: #E3E5F5;
+        display: flex;
+            justify-content: center;
+            align-items: center;
+        .signin-form-container{
+            width: 60%;
+            .select-language{
+                background: transparent;
+                border: none;
+                font-size: 12px;
+                color: #000;
+                font-family: $inter-m;
+                width: 50px;
+                cursor: pointer;
+                &:focus{
+                    background: transparent;
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
+.btn-microsoft{
+    height: 65px;
+    border-radius: 50px;
+    color: #1E293B;
+    background: #F8FAFC;
+    border-color: #F8FAFC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: $inter-sb;
+    img{
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        object-position: center;
+    }
+}

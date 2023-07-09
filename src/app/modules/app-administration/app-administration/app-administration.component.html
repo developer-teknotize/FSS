@@ -1,0 +1,57 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">Apps</div>
+        <button class="btn btn-primary" (click)="addApp()">Add App</button>
+    </div>
+    <div class="card-body">
+        <div class="app-table">
+            <p-table [value]="products">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>App ID</th>
+                        <th>App Name</th>
+                        <th>EXE File</th>
+                        <th>Action</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>00</td>
+                        <td>FROG</td>
+                        <td><button class="btn link-btn clr-primary">frog-01.exe</button></td>
+                        <td>
+                            <div class="action-btn-group">
+                                <button class="btn btn-icon action-btn"><i class="pi pi-pencil"></i></button>
+                                <button class="btn btn-icon action-btn"><i class="pi pi-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+
+            </p-table>
+        </div>
+    </div>
+</div>
+
+<p-dialog [(visible)]="addapp" [modal]="true" [style]="{ width: '30vw' }" [draggable]="false" [resizable]="false">
+    <ng-template pTemplate="header">
+        <p class="title">Add/Edit Apps</p>
+      </ng-template>
+      <div class="input">
+        <label>App ID:</label>
+        <input type="text" class="form-control" placeholder="App ID">
+      </div>
+      <div class="input">
+        <label>App Name:</label>
+        <input type="text" class="form-control" placeholder="App Name">
+      </div>
+      <div class="input">
+        <label>Upload App:</label>
+        <p-fileUpload mode="basic" chooseLabel="Choose" name="demo[]"  accept="image/*" ></p-fileUpload>
+      </div>
+     
+      <div class="text-end btns-group">
+        <button type="button" class="btn btn-secondary" (click)="addapp = false">Cancel</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+</p-dialog>
