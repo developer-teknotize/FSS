@@ -19,6 +19,7 @@ import { PrimengModulesImportModule } from 'src/app/shared/primeng-modules-impor
     LayoutRoutingModule,
 
     PrimengModulesImportModule
-  ]
+  ],
+  
 })
 export class LayoutModule { }

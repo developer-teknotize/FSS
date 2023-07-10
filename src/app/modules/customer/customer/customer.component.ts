@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from './product';
 import { ProductService } from './productservice';
-
+import { ConfirmationService, MessageService, ConfirmEventType } from 'primeng/api';
 interface People {
   firstname?: string;
   lastname?: string;
@@ -11,7 +11,8 @@ interface People {
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.scss']
+  styleUrls: ['./customer.component.scss'],
+  providers: [ConfirmationService, MessageService]
 })
 export class CustomerComponent {
   products!: Product[];
@@ -19,7 +20,9 @@ export class CustomerComponent {
 
   tableData: People[] = [];
     cols: any[] = [];
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private confirmationService: ConfirmationService, private messageService: MessageService) {}
+
+
 
   ngOnInit() {
       this.productService.getProductsWithOrdersSmall().then((data) => (this.products = data));
@@ -65,5 +68,23 @@ export class CustomerComponent {
     addUser() {
         this.adduser = true;
     }
-
+    confirm1() {
+      this.confirmationService.confirm({
+          message: 'Are you sure that you want to proceed?',
+          icon: 'pi pi-exclamation-triangle',
+          accept: () => {
+              this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted' });
+          },
+          reject: (type: ConfirmEventType) => {
+              switch (type) {
+                  case ConfirmEventType.REJECT:
+                      this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
+                      break;
+                  case ConfirmEventType.CANCEL:
+                      this.messageService.add({ severity: 'warn', summary: 'Cancelled', detail: 'You have cancelled' });
+                      break;
+              }
+          }
+      });
+  }
 }

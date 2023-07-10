@@ -8,9 +8,7 @@
                 <input type="text" class="form-control" placeholder="Search PCID... ..." />
               </div>
             </div>
-            <!-- <button class="btn btn-secondary"><i class="pi pi-file-import"></i>Import CSV</button>
-            <button class="btn btn-secondary"><i class="pi pi-file-export"></i>Export CSV</button>
-            <button class="btn btn-danger">Delete All Customers</button> -->
+            
             <button class="btn btn-primary" (click)="addCustomer()">Add Customer</button>
           </div>
         
@@ -47,7 +45,7 @@
                             <div class="action-btn-group">
                                 <button class="btn btn-icon btn-primary btn-sm" (click)="addUser()"><i class="pi pi-user"></i></button>
                                 <button class="btn btn-icon action-btn"><i class="pi pi-pencil"></i></button>
-                                <button class="btn btn-icon action-btn"><i class="pi pi-trash"></i></button>
+                                <button class="btn btn-icon action-btn" (click)="confirm1()"><i class="pi pi-trash"></i></button>
                               </div>
                         </td>
                     </tr>
@@ -193,3 +191,13 @@
         <button type="button" class="btn btn-primary">Save</button>
       </div>
 </p-dialog>
+
+<p-confirmDialog #cd [style]="{width: '25vw'}">
+    <ng-template pTemplate="header">
+        <p class="title">Delete</p>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button class="btn btn-secondary" (click)="cd.reject()">Cencel</button>
+        <button class="btn btn-primary" (click)="cd.accept()">Confirm</button>
+    </ng-template>
+</p-confirmDialog>
