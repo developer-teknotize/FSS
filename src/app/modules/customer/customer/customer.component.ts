@@ -87,4 +87,7 @@ export class CustomerComponent {
           }
       });
   }
+  showToaster() {
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
+}
 }
